@@ -1,0 +1,9 @@
+dist
+node_modules
+.eslintignore                                   
+.eslintrc.js 
+.gitignore                                   
+.prettierrc
+jest.config.js
+rollup.config.js
+tsconfig.json
