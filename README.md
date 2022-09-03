@@ -2,7 +2,7 @@
 
 React hook for creating and managing todo state.
 
-[Demo](https://)
+[Demo](https://chewhx.github.io/use-todo/)
 
 ## Install
 
@@ -103,4 +103,3 @@ const {
 - `remove: IRemoveTodo = (id: string) => void`
 
   - Remove a specific todo
-
