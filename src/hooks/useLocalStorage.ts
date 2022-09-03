@@ -1,7 +1,7 @@
-import React from 'react';
+import { useEffect } from 'react';
 
 export const useLocalStorage = (key: string) => {
-	React.useEffect(() => {
+	useEffect(() => {
 		const initialItem = localStorage.getItem(key) ?? '[]';
 		localStorage.setItem(key, initialItem);
 	}, []);

@@ -1,4 +1,4 @@
-import React from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useLocalStorage as useTodosLocalStorage } from '../hooks/useLocalStorage';
 import { generateTodo } from '../utils/generateTodo';
 
@@ -43,13 +43,13 @@ export const useTodo = (
 	listName: string,
 	todoOptions?: UseTodoOptions
 ): UseTodoReturn => {
-	const [_todos, setTodos] = React.useState<ITodo[]>([]);
+	const [_todos, setTodos] = useState<ITodo[]>([]);
 
 	const { item, setItem } = useTodosLocalStorage(
 		`@chewhx-use-todo-${listName}`
 	);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (todoOptions?.useLocalStorage && item.length) {
 			setTodos(item);
 		} else {
@@ -63,7 +63,7 @@ export const useTodo = (
 		};
 	}, []);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (todoOptions?.useLocalStorage) {
 			setItem(_todos);
 		}
@@ -73,7 +73,7 @@ export const useTodo = (
 	/**
 	 * Push todo
 	 */
-	const push: IPushTodo = React.useCallback((title: string): void => {
+	const push: IPushTodo = useCallback((title: string): void => {
 		const todo = generateTodo(title);
 		setTodos((p) => [...p, todo]);
 	}, []);
@@ -81,14 +81,14 @@ export const useTodo = (
 	/**
 	 * Pop todo
 	 */
-	const pop: IPopTodo = React.useCallback((): void => {
+	const pop: IPopTodo = useCallback((): void => {
 		setTodos((p) => p.filter((_, i) => i !== p.length - 1));
 	}, []);
 
 	/**
 	 * Mark todo as done
 	 */
-	const markDone: IMarkDone = React.useCallback((id: string): void => {
+	const markDone: IMarkDone = useCallback((id: string): void => {
 		setTodos((p) =>
 			p.map((e) => {
 				if (e.id === id) {
@@ -102,7 +102,7 @@ export const useTodo = (
 	/**
 	 * Mark todo as not done
 	 */
-	const markNotDone: IMarkNotDone = React.useCallback((id: string): void => {
+	const markNotDone: IMarkNotDone = useCallback((id: string): void => {
 		setTodos((p) =>
 			p.map((e) => {
 				if (e.id === id) {
@@ -116,7 +116,7 @@ export const useTodo = (
 	/**
 	 * Toggle todo isDone
 	 */
-	const toggleTodo: IToggleTodo = React.useCallback((id: string): void => {
+	const toggleTodo: IToggleTodo = useCallback((id: string): void => {
 		setTodos((p) =>
 			p.map((e) => {
 				if (e.id === id) {
@@ -130,26 +130,23 @@ export const useTodo = (
 	/**
 	 * Remove todo by id
 	 */
-	const remove: IRemoveTodo = React.useCallback((id: string): void => {
+	const remove: IRemoveTodo = useCallback((id: string): void => {
 		setTodos((p) => p.filter((e) => e.id !== id));
 	}, []);
 
 	/**
 	 * Update todo by id
 	 */
-	const update: IUpdateTodo = React.useCallback(
-		(id: string, title: string): void => {
-			setTodos((p) =>
-				p.map((e) => {
-					if (e.id === id) {
-						return { ...e, title, updatedAt: new Date() };
-					}
-					return e;
-				})
-			);
-		},
-		[]
-	);
+	const update: IUpdateTodo = useCallback((id: string, title: string): void => {
+		setTodos((p) =>
+			p.map((e) => {
+				if (e.id === id) {
+					return { ...e, title, updatedAt: new Date() };
+				}
+				return e;
+			})
+		);
+	}, []);
 
 	return {
 		allTodos: _todos,
