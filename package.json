@@ -1,6 +1,6 @@
 {
 	"name": "@chewhx/use-todo",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"description": "Hook for React todos state",
 	"main": "dist/cjs/index.js",
 	"module": "dist/esm/index.js",
@@ -11,10 +11,10 @@
 	"scripts": {
 		"build": "run-s delete-dist build-dist",
 		"build-dist": "rollup -c",
-		"build-storybook": "build-storybook",
+		"build-storybook": "build-storybook -o docs",
 		"docs": "start-storybook -p 6006",
 		"delete-dist": "rimraf dist",
-		"check-publish": "npm pack && rimraf ./*.tgz",
+		"check-publish": "npm publish --dry-run",
 		"format": "prettier src -w"
 	},
 	"keywords": [],

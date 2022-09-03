@@ -16,7 +16,7 @@ export default {
 	title: 'Example',
 };
 
-export const Basic = () => {
+export const Example = () => {
 	const {
 		allTodos: todos,
 		toggleTodo,
@@ -47,6 +47,7 @@ export const Basic = () => {
 					value={input}
 					onChange={(e) => setInput(e.currentTarget.value)}
 					color="grape"
+					placeholder="Add a new task"
 					rightSection={
 						<>
 							<ActionIcon
