@@ -4,6 +4,7 @@
 	"description": "Hook for React todos state",
 	"main": "dist/cjs/index.js",
 	"module": "dist/esm/index.js",
+	"typings": "dist/index.d.ts",
 	"files": [
 		"dist"
 	],
