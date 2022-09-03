@@ -14,5 +14,12 @@
 		"allowSyntheticDefaultImports": true,
 		"forceConsistentCasingInFileNames": true
 	},
-	"exclude": ["dist", "node_modules", "src/**/**/*.stories.tsx"]
+	"exclude": [
+		"dist",
+		"node_modules",
+		"src/**/**/*.stories.tsx",
+		"examples",
+		"_data",
+		".storybook"
+	]
 }
