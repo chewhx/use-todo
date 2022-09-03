@@ -17,7 +17,21 @@
 		"check-publish": "npm publish --dry-run",
 		"format": "prettier src -w"
 	},
-	"keywords": [],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/chewhx/use-todo.git"
+	},
+	"homepage": "https://chewhx.github.io/use-todo/",
+	"keywords": [
+		"react",
+		"productivity",
+		"todolist",
+		"todoapp",
+		"react-hooks",
+		"reacthooks",
+		"usetodo",
+		"usetodos"
+	],
 	"author": "Chew Han Xiang <hello@chewhx.com>",
 	"license": "MIT",
 	"devDependencies": {
